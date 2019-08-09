@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./transaction.rb')
 require("pry-byebug")
 
 class Expense
@@ -48,5 +49,13 @@ class Expense
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+  def transactions()
+    sql = "SELECT * FROM transactions WHERE expense_id = $1"
+    values = [id]
+    transaction_data = SqlRunner.run(sql, values)
+    return transaction_data.map { |transaction| Transaction.new(transaction)}
+  end
+
 
 end

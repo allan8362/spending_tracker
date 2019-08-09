@@ -62,7 +62,19 @@ transaction1 = Transaction.new({
   "expense_id" => expense2.id
   })
 
+  transaction2 = Transaction.new({
+    "transaction_date" => "1/08/2019",
+    "amount" => 34.88,
+    "merchant_id" => merchant1.id,
+    "transaction_desc" => "food shopping",
+    "bank_id" => bank1.id,
+    "expense_id" => expense1.id
+    })
+
 transaction1.save()
+transaction2.save()
+transaction2.save()
+transaction2.save()
 
 
 binding.pry

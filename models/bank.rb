@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./transaction.rb')
 
 class Bank
 
@@ -48,6 +49,13 @@ class Bank
     sql = "DELETE FROM banks WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def transactions()
+    sql = "SELECT * FROM transactions WHERE bank_id = $1"
+    values = [id]
+    transaction_data = SqlRunner.run(sql, values)
+    return transaction_data.map { |transaction| Transaction.new(transaction)}
   end
 
 end

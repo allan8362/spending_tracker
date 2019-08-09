@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./transaction.rb')
 require("pry-byebug")
 
 class Merchant
@@ -47,6 +48,13 @@ class Merchant
     sql = "DELETE FROM merchants WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def transactions()
+    sql = "SELECT * FROM transactions WHERE merchant_id = $1"
+    values = [id]
+    transaction_data = SqlRunner.run(sql, values)
+    return transaction_data.map { |transaction| Transaction.new(transaction)}
   end
 
 end
