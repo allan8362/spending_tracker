@@ -1,9 +1,10 @@
 require_relative("../models/bank.rb")
 require_relative("../models/expense.rb")
 require_relative("../models/merchant.rb")
-# require_relative("../models/transaction.rb")
+require_relative("../models/transaction.rb")
 require("pry-byebug")
 
+Transaction.delete_all()
 Merchant.delete_all()
 Expense.delete_all()
 Bank.delete_all()
@@ -14,8 +15,8 @@ merchant1 = Merchant.new({
   })
 
 merchant2 = Merchant.new({
-  "name" => "Waterstones",
-  "tag" => "Books"
+  "name" => "First Bus",
+  "tag" => "Travel"
   })
 
   merchant1.save()
@@ -37,8 +38,8 @@ expense2 = Expense.new({
 expense1.save()
 expense2.save()
 
-expense2.budget = 120.00
-expense2.update()
+# expense2.budget = 120.00
+# expense2.update()
 
 bank1 = Bank.new({
   "account_number" => 10124876,
@@ -49,8 +50,20 @@ bank1 = Bank.new({
 
 bank1.save()
 
-bank1.name = "RBS Loyalty Account"
-bank1.update()
+# bank1.name = "RBS Loyalty Account"
+# bank1.update()
+
+transaction1 = Transaction.new({
+  "transaction_date" => "25/07/2019",
+  "amount" => 12.25,
+  "merchant_id" => merchant2.id,
+  "transaction_desc" => "weekly bus ticket",
+  "bank_id" => bank1.id,
+  "expense_id" => expense2.id
+  })
+
+transaction1.save()
+
 
 binding.pry
 nil
