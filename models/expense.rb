@@ -19,15 +19,34 @@ class Expense
     @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE expenses SET (name, budget) = ($1, $2) WHERE id = $3"
+    values = [@name, @budget, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM expenses"
     results = SqlRunner.run(sql)
     return results.map { |expense| Expense.new(expense)}
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM expenses WHERE id = $1"
+    values = [id]
+    expense = SqlRunner.run(sql, values)
+    return Expense.new(expense.first())
+  end
+
   def self.delete_all()
     sql = "DELETE FROM expenses"
     SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM expenses WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
 end
