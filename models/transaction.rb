@@ -1,9 +1,10 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./expense.rb')
 
 class Transaction
 
   attr_reader :id
-  attr_accessor :date, :amount, :merchant_id, :desc, :bank_id, :expense_id
+  attr_accessor :transaction_date, :amount, :merchant_id, :transaction_desc, :bank_id, :expense_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -50,6 +51,11 @@ class Transaction
     sql = "DELETE FROM transactions WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql,values)
+  end
+
+  def expense()
+    expense = Expense.find(@expense_id)
+    return expense
   end
 
 end

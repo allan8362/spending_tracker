@@ -3,8 +3,7 @@ require('sinatra/contrib/all')
 require('pry-byebug')
 also_reload('./models/*')
 
-require_relative("./controllers/house_controller.rb")
-require_relative("./controllers/student_controller.rb")
+require_relative("./controllers/merchant_controller.rb")
 
 
 get '/' do

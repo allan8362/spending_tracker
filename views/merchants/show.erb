@@ -1,0 +1,21 @@
+<h3>Spend with - <%= @merchant.name %></h3>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for merchant in @merchant.transactions() %>
+    <tr>
+      <td> <%= merchant.transaction_date %></td>
+      <td> £ <%= merchant.amount %></td>
+      <td> <%= merchant.transaction_desc %></td>
+      <td> <%= merchant.expense.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
