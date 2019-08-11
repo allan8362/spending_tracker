@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./expense.rb')
 require_relative('./merchant.rb')
+require_relative('./bank.rb')
 
 class Transaction
 
@@ -62,6 +63,11 @@ class Transaction
   def merchant()
     merchant = Merchant.find(@merchant_id)
     return merchant
+  end
+
+  def bank()
+    bank = Bank.find(@bank_id)
+    return bank
   end
 
 end
