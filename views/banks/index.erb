@@ -1,0 +1,21 @@
+<h3>Bank Accounts</h3>
+
+<hr />
+
+<p><a href="/banks/new">Add new bank account</a></p>
+<hr />
+
+<% for bank in @banks %>
+  <p>Account name: <%= bank.name() %></p>
+  <p>Balance: £ <%= bank.balance() %></p>
+
+  <p><a href="/banks/<%= bank.id %>">Show account transactions</a></p>
+
+  <p><a href="/banks/<%= bank.id %>/edit">Edit account</a></p>
+
+  <form action="/banks/<%= bank.id %>/delete" method="POST">
+    <input type="submit" value="Delete Account">
+  </form>
+
+  <hr />
+<% end %>

@@ -1,0 +1,30 @@
+<header>
+<h3>Bank account: <%= @bank.name %></h3>
+<hr />
+<p>Account number: <%= @bank.account_number %></p>
+<p>Account type: <%= @bank.type %></p>
+<p>Balance: £ <%= @bank.balance %></p>
+</header>
+<hr />
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Merchant</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for bank in @bank.transactions() %>
+    <tr>
+      <td> <%= bank.transaction_date %></td>
+      <td> <%= bank.amount %></td>
+      <td> <%= bank.transaction_desc %></td>
+      <td> <%= bank.merchant.name %></td>
+      <td> <%= bank.expense.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

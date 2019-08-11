@@ -2,10 +2,10 @@
 
 <form action="/expenses/<%= @expense.id %>" method="POST">
 
-<label for="expense-name"></label>
+<label for="expense-name">Expense Category Name</label>
 <input type="text" id="expense-name" name="name" value="<%= @expense.name %>">
 
-<label for="expense-budget"></label>
+<label for="expense-budget">Monthly Budget</label>
 <input type="number" id="expense-budget" name="budget" value="<%= @expense.budget %>">
 
 <input type="submit" value="Update">
