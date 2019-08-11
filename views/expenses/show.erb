@@ -1,0 +1,26 @@
+<h3>Spend on - <%= @expense.name %> Budget - <%= @expense.budget %></h3>
+
+<table>
+<thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Description</th>
+    <th scope="col">Merchant</th>
+  </tr>
+</thead>
+<tbody>
+  <% for expense in @expense.transactions() %>
+  <tr>
+    <td> <%= expense.transaction_date %></td>
+    <td> <%= expense.amount %></td>
+    <td> <%= expense.transaction_desc %></td>
+    <td> <%= expense.merchant.name %></td>
+  </tr>
+  <% end %>
+</tbody>
+
+
+
+
+</table>

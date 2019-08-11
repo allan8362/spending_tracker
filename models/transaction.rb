@@ -58,4 +58,9 @@ class Transaction
     return expense
   end
 
+  def merchant()
+    merchant = Merchant.find(@merchant_id)
+    return merchant
+  end
+
 end

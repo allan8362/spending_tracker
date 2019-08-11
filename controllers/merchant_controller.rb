@@ -8,13 +8,13 @@ get '/merchants' do
 end
 
 # NEW
-get "/merchants/new" do
+get '/merchants/new' do
   @merchants = Merchant.all()
   erb(:"merchants/new")
 end
 
 # CREATE
-post "/merchants" do
+post '/merchants' do
   merchant_hash = params
   merchant = Merchant.new(merchant_hash)
   merchant.save()
@@ -29,7 +29,7 @@ get '/merchants/:id' do
 end
 
 # DELETE
-post "/merchants/:id/delete" do
+post '/merchants/:id/delete' do
   id = params[:id].to_i()
   merchant = Merchant.find(id)
   merchant.delete()

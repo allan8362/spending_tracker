@@ -1,0 +1,22 @@
+<h3>Expenses</h3>
+
+<hr />
+<p><a href="/expenses/new">Add new expense category</a></p>
+<hr />
+
+<% for expense in @expenses %>
+<!-- show category name and budget -->
+  <p>Expense Name: <%= expense.name %></p>
+  <p>Expense Budget: £ <%= expense.budget %></p>
+<!-- link to show spend -->
+  <p><a href="/expenses/<%= expense.id %>">Show Spend</a></p>
+<!-- link to edit expense category -->
+  <p><a href="/expenses/<%= expense.id %>/edit">Edit expense category</a></p>
+
+<!-- button to delete expense category -->
+  <form action="/expenses/<%= expense.id %>/delete" method="POST">
+    <input type="submit" value="Delete Expense">
+  </form>
+
+  <hr />
+<% end %>
