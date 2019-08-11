@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./expense.rb')
+require_relative('./merchant.rb')
 
 class Transaction
 

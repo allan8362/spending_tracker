@@ -1,0 +1,36 @@
+<h3>Transactions</h3>
+
+<hr />
+<p><a href="/transactions/new">Add transaction</a></p>
+<hr />
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Merchant</th>
+      <th scope="col" colspan=3>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+<% for transaction in @transactions %>
+<tr>
+  <td><%= transaction.transaction_date %></td>
+  <td><%= transaction.amount %></td>
+  <td><%= transaction.merchant.name %></td>
+
+
+  <td><a href="/transactions/<%= transaction.id %>">Show</a></td>
+
+  <td><a href="/transactions/<%= transaction.id %>/edit">Edit</a></td>
+
+  <td>
+    <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+      <input type="submit" value="Delete">
+    </form>
+  </td>
+</tr>
+
+<% end %>
+  </tbody>
+</table>
