@@ -5,6 +5,16 @@ require('pry-byebug')
 get '/transactions' do
   @transactions = Transaction.all()
   @outgoings = Transaction.total_transactions()
+  @sorters = ["date", "expense", "merchant", "amount_ascending", "amount_descending"]
+
+  erb(:"transactions/index")
+end
+
+get '/transactions/sorted' do
+  sorter = params[:sorter]
+  @sorters = ["date", "expense", "merchant", "amount_ascending", "amount_descending"]
+  @transactions = Transaction.sorted_transactions(sorter)
+  @outgoings = Transaction.total_transactions()
   erb(:"transactions/index")
 end
 

@@ -1,7 +1,26 @@
 <h3>Transactions</h3>
-
+<hr />
+<p>Total outgoings: £ <%= '%.2f' % @outgoings.round(2) %></p>
 <hr />
 <p><a href="/transactions/new">Add transaction</a></p>
+<p><a href="">Filter transactions</a></p>
+
+<form action="/transactions/sorted" method="GET">
+  <label for="sort-by">Sort By:</label>
+    <select name="sorter" id="sort-by">
+      <!-- <option value="merchant">Merchant</option>
+      <option value="expense">Expense</option>
+      <option value="date">Date</option>
+      <option value="amount_ascending">Amount Ascending</option>
+      <option value="amount_descending">Amount Descending</option> -->
+      <% for sorter in @sorters %>
+        <option value="<%= sorter %>"><%= sorter %></option>
+       <% end %>
+    </select>
+  <input type="submit" value="Sort">
+</form>
+
+
 <hr />
 <table>
   <thead>
@@ -36,5 +55,3 @@
 <% end %>
   </tbody>
 </table>
-
-<p>Total outgoings: £ <%= '%.2f' % @outgoings.round(2) %></p>

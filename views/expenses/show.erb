@@ -1,27 +1,29 @@
 <h3>Spend on: <%= @expense.name %></h3>
-<p>Budget: £<%= @expense.budget %></p>
+<p>Budget: £ <%= '%.2f' % @expense.budget %></p>
+<p>Spent: £ <%= '%.2f' % @expense.total_out()%></p>
+<p>Left: £ <%= '%.2f' % @expense.budget_left() %></p>
 
 <table>
-<thead>
-  <tr>
-    <th scope="col">Date</th>
-    <th scope="col">Amount</th>
-    <th scope="col">Description</th>
-    <th scope="col">Merchant</th>
-  </tr>
-</thead>
-<tbody>
-  <% for expense in @expense.transactions() %>
-  <tr>
-    <td> <%= expense.transaction_date %></td>
-    <td> <%= '%.2f' % expense.amount %></td>
-    <td> <%= expense.transaction_desc %></td>
-    <td> <%= expense.merchant.name %></td>
-  </tr>
-  <% end %>
-</tbody>
 
-
-
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Merchant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for expense in @expense.transactions() %>
+    <tr>
+      <td> <%= expense.transaction_date %></td>
+      <td> <%= '%.2f' % expense.amount %></td>
+      <td> <%= expense.transaction_desc %></td>
+      <td> <%= expense.merchant.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
 
 </table>
+
+<p><a href="/expenses">Budget List</a></p>
