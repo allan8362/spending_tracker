@@ -1,5 +1,6 @@
 require_relative('../models/transaction.rb')
 require_relative('../models/chooser.rb')
+require('date')
 require('pry-byebug')
 
 # INDEX
@@ -19,9 +20,8 @@ get '/transactions/sorted' do
 end
 
 get '/transactions/filtered' do
-  chooser = params[:filter]
   @choosers = Chooser.all()
-  @transactions = Transaction.filtered_transactions(chooser)
+  @transactions = Transaction.filter_by_date()
   @outgoings = Transaction.total_transactions()
   erb(:"transactions/index")
 end
@@ -32,6 +32,7 @@ get '/transactions/new' do
   @banks = Bank.all()
   @merchants = Merchant.all()
   @expenses = Expense.all()
+  @today = Date.today().strftime("%d/%m/%Y")
   erb(:"transactions/new")
 end
 

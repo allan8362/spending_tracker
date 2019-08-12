@@ -2,6 +2,8 @@ require_relative('../db/sql_runner.rb')
 require_relative('./expense.rb')
 require_relative('./merchant.rb')
 require_relative('./bank.rb')
+require_relative('./month.rb')
+require('date')
 require('pry-byebug')
 
 class Transaction
@@ -12,11 +14,11 @@ class Transaction
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @transaction_date = options['transaction_date']
-    @amount = options['amount'].to_f
-    @merchant_id = options['merchant_id'].to_i
-    @transaction_desc = options['transaction_desc']
-    @bank_id = options['bank_id'].to_i
-    @expense_id = options['expense_id'].to_i
+    @amount = options['amount'].to_f()
+    @merchant_id = options['merchant_id'].to_i()
+    @transaction_desc = options['transaction_desc'].capitalize()
+    @bank_id = options['bank_id'].to_i()
+    @expense_id = options['expense_id'].to_i()
   end
 
   def save()
@@ -78,8 +80,8 @@ class Transaction
     banks = Bank.all()
     # loop through each bank
     for bank in banks
-    # call function from banks for total_out
-    # add to total_trans
+      # call function from banks for total_out
+      # add to total_trans
       total_trans += bank.total_out()
     end
     # return total_trans
@@ -90,18 +92,34 @@ class Transaction
     transactions = all()
     case
     when sort_col == "Date"
-        return transactions.sort_by { |transaction| transaction.transaction_date }
-      when sort_col == "Expense"
-        return transactions.sort_by { |transaction| transaction.expense.name }
-      when sort_col == "Merchant"
-        return transactions.sort_by { |transaction| transaction.merchant.name }
-      when sort_col == "Amount_ascending"
-        return transactions.sort_by { |transaction| transaction.amount }
-      when sort_col == "Amount_descending"
-        return transactions.sort { |transaction1, transaction2| transaction2.amount <=> transaction1.amount }
+      return transactions.sort_by { |transaction| transaction.transaction_date }
+    when sort_col == "Expense"
+      return transactions.sort_by { |transaction| transaction.expense.name }
+    when sort_col == "Merchant"
+      return transactions.sort_by { |transaction| transaction.merchant.name }
+    when sort_col == "Amount_ascending"
+      return transactions.sort_by { |transaction| transaction.amount }
+    when sort_col == "Amount_descending"
+      return transactions.sort { |transaction1, transaction2| transaction2.amount <=> transaction1.amount }
     end
 
   end
+
+  def self.filter_by_date()
+    transactions = all()
+    filtered_transactions = []
+
+    start_date = Month.month_start(7)
+    end_date = Month.month_end(7)
+
+    for transaction in transactions
+      if (transaction.transaction_date >= start_date && transaction.transaction_date <= end_date)
+        filtered_transactions.push(transaction)
+      end
+    end
+    return filtered_transactions
+  end
+
 
 
 end
