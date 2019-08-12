@@ -6,16 +6,19 @@
 <hr />
 
 <% for bank in @banks %>
+
   <p>Account name: <%= bank.name() %></p>
   <p>Opening Balance: £ <%= '%.2f' % bank.balance() %></p>
   <p>Outgoings: £ <%= '%.2f' % bank.total_out() %></p>
   <p>Closing Balance: £ <%= '%.2f' % bank.closing_balance() %></p>
+
   <p><a href="/banks/<%= bank.id %>">Show account transactions</a></p>
 
   <p><a href="/banks/<%= bank.id %>/edit">Edit account</a></p>
 
   <form action="/banks/<%= bank.id %>/delete" method="POST">
     <input type="submit" value="Delete Account">
+
   </form>
 
   <hr />

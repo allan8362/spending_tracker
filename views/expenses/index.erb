@@ -8,6 +8,8 @@
 <!-- show category name and budget -->
   <p>Expense Name: <%= expense.name %></p>
   <p>Expense Budget: £ <%= '%.2f' % expense.budget %></p>
+  <p>Amount Spent: £ <%= '%.2f' % expense.total_out %></p>
+  <p>Budget Left: £ <%= '%.2f' % expense.budget_left() %></p>
 <!-- link to show spend -->
   <p><a href="/expenses/<%= expense.id %>">Show Spend</a></p>
 <!-- link to edit expense category -->

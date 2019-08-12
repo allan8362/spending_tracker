@@ -71,13 +71,19 @@ class Transaction
     return bank
   end
 
-  def total_transactions()
+  def self.total_transactions()
     # set total_trans to zero
+    total_trans = 0
     # call in all banks
+    banks = Bank.all()
     # loop through each bank
+    for bank in banks
     # call function from banks for total_out
     # add to total_trans
+      total_trans += bank.total_out()
+    end
     # return total_trans
+    return total_trans
   end
 
 end

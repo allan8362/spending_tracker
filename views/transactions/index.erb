@@ -14,14 +14,13 @@
     </tr>
   </thead>
   <tbody>
-    <% outgoings = 0 %>
+
 <% for transaction in @transactions %>
 <tr>
   <td><%= transaction.transaction_date %></td>
   <td><%= '%.2f' % transaction.amount %></td>
   <td><%= transaction.merchant.name %></td>
   <td><%= transaction.expense.name %></td>
-  <% outgoings += transaction.amount %>
 
   <td><a href="/transactions/<%= transaction.id %>">Show</a></td>
 
@@ -38,4 +37,4 @@
   </tbody>
 </table>
 
-<p>Total outgoings: £ <%= outgoings.round(2) %> </p>
+<p>Total outgoings: £ <%= '%.2f' % @outgoings.round(2) %></p>

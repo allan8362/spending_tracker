@@ -57,4 +57,13 @@ class Merchant
     return transaction_data.map { |transaction| Transaction.new(transaction)}
   end
 
+  def total_out()
+    transaction = transactions()
+    outgoings = 0
+    for transaction in transactions
+      outgoings += transaction.amount
+    end
+    return outgoings
+  end
+  
 end

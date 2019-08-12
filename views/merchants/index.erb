@@ -7,6 +7,7 @@
 <% for merchant in @merchants %>
   <p>Merchant Name: <%= merchant.name() %></p>
   <p>Default tag: <%= merchant.tag() %></p>
+  <p>Total Spent: £ <%= '%.2f' % merchant.total_out() %></p>
 
   <p><a href="/merchants/<%= merchant.id %>">Show spend</a></p>
 

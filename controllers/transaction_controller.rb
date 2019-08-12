@@ -4,6 +4,7 @@ require('pry-byebug')
 # INDEX
 get '/transactions' do
   @transactions = Transaction.all()
+  @outgoings = Transaction.total_transactions()
   erb(:"transactions/index")
 end
 
