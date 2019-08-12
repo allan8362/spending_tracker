@@ -89,18 +89,19 @@ class Transaction
   def self.sorted_transactions(sort_col)
     transactions = all()
     case
-      when sort_col == "date"
+    when sort_col == "Date"
         return transactions.sort_by { |transaction| transaction.transaction_date }
-      when sort_col == "expense"
+      when sort_col == "Expense"
         return transactions.sort_by { |transaction| transaction.expense.name }
-      when sort_col == "merchant"
+      when sort_col == "Merchant"
         return transactions.sort_by { |transaction| transaction.merchant.name }
-      when sort_col == "amount_ascending"
+      when sort_col == "Amount_ascending"
         return transactions.sort_by { |transaction| transaction.amount }
-      when sort_col == "amount_descending"
+      when sort_col == "Amount_descending"
         return transactions.sort { |transaction1, transaction2| transaction2.amount <=> transaction1.amount }
     end
 
   end
+
 
 end

@@ -12,10 +12,10 @@
   </select>
 
   <label for="trans-date">Date</label>
-  <input type="date" id ="trans-date" name="transaction_date" value="<%= @transaction.transaction_date %>">
+  <input required type="date" id ="trans-date" name="transaction_date" value="<%= @transaction.transaction_date %>">
 
   <label for="trans-amount">Amount</label>
-  <input type="number" step ="0.01" id="trans-amount" name="amount" value="<%= '%.2f' % @transaction.amount %>">
+  <input required type="number" step ="0.01" id="trans-amount" name="amount" value="<%= '%.2f' % @transaction.amount %>">
 
   <label for="merchant">Merchant</label>
   <select name="merchant_id" id="merchant">

@@ -1,19 +1,27 @@
 require_relative('../models/transaction.rb')
+require_relative('../models/chooser.rb')
 require('pry-byebug')
 
 # INDEX
 get '/transactions' do
+  @choosers = Chooser.all()
   @transactions = Transaction.all()
   @outgoings = Transaction.total_transactions()
-  @sorters = ["date", "expense", "merchant", "amount_ascending", "amount_descending"]
-
   erb(:"transactions/index")
 end
 
 get '/transactions/sorted' do
-  sorter = params[:sorter]
-  @sorters = ["date", "expense", "merchant", "amount_ascending", "amount_descending"]
-  @transactions = Transaction.sorted_transactions(sorter)
+  chooser = params[:sorter]
+  @choosers = Chooser.all()
+  @transactions = Transaction.sorted_transactions(chooser)
+  @outgoings = Transaction.total_transactions()
+  erb(:"transactions/index")
+end
+
+get '/transactions/filtered' do
+  chooser = params[:filter]
+  @choosers = Chooser.all()
+  @transactions = Transaction.filtered_transactions(chooser)
   @outgoings = Transaction.total_transactions()
   erb(:"transactions/index")
 end

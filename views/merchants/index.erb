@@ -4,18 +4,32 @@
 <p><a href="/merchants/new">Add new merchant</a></p>
 <hr />
 
-<% for merchant in @merchants %>
-  <p>Merchant Name: <%= merchant.name() %></p>
-  <p>Default tag: <%= merchant.tag() %></p>
-  <p>Total Spent: £ <%= '%.2f' % merchant.total_out() %></p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Default Category</th>
+      <th scope="col">Spent</th>
+      <th scope="col" colspan=3>Action</th>
+    </tr>
+  </thead>
 
-  <p><a href="/merchants/<%= merchant.id %>">Show spend</a></p>
+  <tbody>
+    <% for merchant in @merchants %>
+    <tr>
+      <td><%= merchant.name() %></td>
+      <td><%= merchant.tag() %></td>
+      <td><%= '%.2f' % merchant.total_out() %></td>
 
-  <p><a href="/merchants/<%= merchant.id %>/edit">Edit Merchant</a></p>
+      <td><a href="/merchants/<%= merchant.id %>">Show</a></td>
 
-  <form action="/merchants/<%= merchant.id %>/delete" method="POST">
-    <input type="submit" value="Delete Merchant">
-  </form>
-
-  <hr />
-<% end %>
+      <td><a href="/merchants/<%= merchant.id %>/edit">Edit</a></td>
+      <td>
+        <form action="/merchants/<%= merchant.id %>/delete" method="POST">
+          <input type="submit" value="Delete Merchant">
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

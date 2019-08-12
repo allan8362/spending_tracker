@@ -1,25 +1,37 @@
 <h3>Bank Accounts</h3>
 
 <hr />
-
 <p><a href="/banks/new">Add new bank account</a></p>
 <hr />
 
-<% for bank in @banks %>
+<table>
+  <thead>
+    <tr>
+      <td scope="col">Account Name</td>
+      <td scope="col">Opening Balance</td>
+      <td scope="col">Outgoings</td>
+      <td scope="col">Closing</td>
+      <td scope="col" colspan=3>Action</td>
+    </tr>
+  </thead>
 
-  <p>Account name: <%= bank.name() %></p>
-  <p>Opening Balance: £ <%= '%.2f' % bank.balance() %></p>
-  <p>Outgoings: £ <%= '%.2f' % bank.total_out() %></p>
-  <p>Closing Balance: £ <%= '%.2f' % bank.closing_balance() %></p>
+  <tbody>
+    <% for bank in @banks %>
+    <tr>
+      <td><%= bank.name() %></td>
+      <td><%= '%.2f' % bank.balance() %></td>
+      <td><%= '%.2f' % bank.total_out() %></td>
+      <td><%= '%.2f' % bank.closing_balance() %></td>
 
-  <p><a href="/banks/<%= bank.id %>">Show account transactions</a></p>
+      <td><a href="/banks/<%= bank.id %>">Show</a></td>
 
-  <p><a href="/banks/<%= bank.id %>/edit">Edit account</a></p>
-
-  <form action="/banks/<%= bank.id %>/delete" method="POST">
-    <input type="submit" value="Delete Account">
-
-  </form>
-
-  <hr />
-<% end %>
+      <td><a href="/banks/<%= bank.id %>/edit">Edit</a></td>
+      <td>
+        <form action="/banks/<%= bank.id %>/delete" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

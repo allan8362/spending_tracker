@@ -3,7 +3,7 @@
 <form action="/merchants/<%= @merchant.id %>" method="POST">
 
 <label for="merchant-name">Merchant Name:</label>
-<input type="text" id="merchant-name" name="name" value="<%= @merchant.name %>">
+<input required type="text" id="merchant-name" name="name" value="<%= @merchant.name %>">
 
 <label for="merchant-tag">Default Category</label>
 <input type="text" id="merchant-tag" name="tag" value="<%= @merchant.tag %>">

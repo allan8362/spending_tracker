@@ -3,7 +3,7 @@
 <form action="/expenses/<%= @expense.id %>" method="POST">
 
 <label for="expense-name">Expense Category Name</label>
-<input type="text" id="expense-name" name="name" value="<%= @expense.name %>">
+<input required type="text" id="expense-name" name="name" value="<%= @expense.name %>">
 
 <label for="expense-budget">Monthly Budget</label>
 <input type="number" step ="0.01" id="expense-budget" name="budget" value="<%= '%.2f' % @expense.budget %>">

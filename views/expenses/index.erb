@@ -4,21 +4,37 @@
 <p><a href="/expenses/new">Add new expense category</a></p>
 <hr />
 
-<% for expense in @expenses %>
-<!-- show category name and budget -->
-  <p>Expense Name: <%= expense.name %></p>
-  <p>Expense Budget: £ <%= '%.2f' % expense.budget %></p>
-  <p>Amount Spent: £ <%= '%.2f' % expense.total_out %></p>
-  <p>Budget Left: £ <%= '%.2f' % expense.budget_left() %></p>
-<!-- link to show spend -->
-  <p><a href="/expenses/<%= expense.id %>">Show Spend</a></p>
-<!-- link to edit expense category -->
-  <p><a href="/expenses/<%= expense.id %>/edit">Edit expense category</a></p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Budget</th>
+      <th scope="col">Spent</th>
+      <th scope="col">Left</th>
+      <th scope="col" colspan=3>Action</th>
+    </tr>
+  </thead>
 
-<!-- button to delete expense category -->
-  <form action="/expenses/<%= expense.id %>/delete" method="POST">
-    <input type="submit" value="Delete Expense">
-  </form>
+  <tbody>
+    <% for expense in @expenses %>
+    <tr>
+      <!-- show category name and budget -->
+      <td><%= expense.name %></td>
+      <td><%= '%.2f' % expense.budget %></td>
+      <td><%= '%.2f' % expense.total_out %></td>
+      <td><%= '%.2f' % expense.budget_left() %></td>
+      <!-- link to show spend -->
+      <td><a href="/expenses/<%= expense.id %>">Show</a></td>
+      <!-- link to edit expense category -->
+      <td><a href="/expenses/<%= expense.id %>/edit">Edit</a></td>
 
-  <hr />
-<% end %>
+      <!-- button to delete expense category -->
+      <td>
+        <form action="/expenses/<%= expense.id %>/delete" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
