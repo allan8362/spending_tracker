@@ -20,7 +20,7 @@
     <% for bank in @bank.transactions() %>
     <tr>
       <td> <%= bank.transaction_date %></td>
-      <td> <%= bank.amount %></td>
+      <td> <%= '%.2f' % bank.amount %></td>
       <td> <%= bank.transaction_desc %></td>
       <td> <%= bank.merchant.name %></td>
       <td> <%= bank.expense.name %></td>

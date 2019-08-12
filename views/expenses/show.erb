@@ -14,7 +14,7 @@
   <% for expense in @expense.transactions() %>
   <tr>
     <td> <%= expense.transaction_date %></td>
-    <td> <%= expense.amount %></td>
+    <td> <%= '%.2f' % expense.amount %></td>
     <td> <%= expense.transaction_desc %></td>
     <td> <%= expense.merchant.name %></td>
   </tr>

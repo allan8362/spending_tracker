@@ -58,4 +58,17 @@ class Bank
     return transaction_data.map { |transaction| Transaction.new(transaction)}
   end
 
+  def total_out()
+    transactions = transactions()
+    outgoings = 0
+    for transaction in transactions
+      outgoings += transaction.amount
+    end
+    return outgoings
+  end
+
+  def closing_balance()
+    return @balance - total_out()
+  end
+
 end

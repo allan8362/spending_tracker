@@ -2,6 +2,7 @@ require_relative('../db/sql_runner.rb')
 require_relative('./expense.rb')
 require_relative('./merchant.rb')
 require_relative('./bank.rb')
+require('pry-byebug')
 
 class Transaction
 
@@ -68,6 +69,15 @@ class Transaction
   def bank()
     bank = Bank.find(@bank_id)
     return bank
+  end
+
+  def total_transactions()
+    # set total_trans to zero
+    # call in all banks
+    # loop through each bank
+    # call function from banks for total_out
+    # add to total_trans
+    # return total_trans
   end
 
 end

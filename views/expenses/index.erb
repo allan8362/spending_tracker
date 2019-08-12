@@ -7,7 +7,7 @@
 <% for expense in @expenses %>
 <!-- show category name and budget -->
   <p>Expense Name: <%= expense.name %></p>
-  <p>Expense Budget: £ <%= expense.budget %></p>
+  <p>Expense Budget: £ <%= '%.2f' % expense.budget %></p>
 <!-- link to show spend -->
   <p><a href="/expenses/<%= expense.id %>">Show Spend</a></p>
 <!-- link to edit expense category -->
