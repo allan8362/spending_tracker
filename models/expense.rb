@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./transaction.rb')
+require_relative('./month.rb')
 require("pry-byebug")
 
 class Expense
@@ -58,8 +59,23 @@ class Expense
   end
 
   def total_out()
-    transactions = transactions()
+    # bring in all transactions for an expense category
+    all_transactions = transactions()
+    # set new blank array to receive filtered month transactions
+    transactions = []
+    # get month and month dates
+    month = 8
+    start_date = Month.month_start(month)
+    end_date = Month.month_end(month)
+    # loop through all transactions to get a months transactions
+    for transaction in all_transactions
+      if (transaction.transaction_date >= start_date && transaction.transaction_date <= end_date)
+        transactions.push(transaction)
+      end
+    end
+    # set outgoings for this expense category to zero
     outgoings = 0
+    # loop through and add amount of each transaction to outgoings
     for transaction in transactions
       outgoings += transaction.amount
     end
