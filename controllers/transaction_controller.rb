@@ -36,7 +36,7 @@ get '/transactions/new' do
   @banks = Bank.all()
   @merchants = Merchant.all()
   @expenses = Expense.all()
-  @today = Date.today().strftime("%d/%m/%Y")
+  @today = Date.today().strftime("%Y-%m-%d")
   erb(:"transactions/new")
 end
 

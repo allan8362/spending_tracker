@@ -1,40 +1,49 @@
-<h3>Transactions</h3>
+<h1>Transactions</h1>
 
-<p class="btn--wrapper">
-  <a class="btn btn--add" href="/transactions/new">Add transaction</a>
-</p>
-<p class="btn--wrapper">
-  <a class="btn btn--view" href="/expenses">Expense Filter</a>
-</p>
-<p class="btn--wrapper">
-  <a class="btn btn--view" href="/merchants">Merchant Filter</a>
-</p>
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <p>Total outgoings: £ <%= '%.2f' % @outgoings.round(2) %></p>
+  </div>
+</div>
 
-<hr />
-<p>Total outgoings: £ <%= '%.2f' % @outgoings.round(2) %></p>
-<hr />
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <p class="btn--wrapper">
+      <a class="btn btn--add" href="/transactions/new">Add transaction</a>
+    </p>
+    <p class="btn--wrapper">
+      <a class="btn btn--view" href="/expenses">Expense Filter</a>
+    </p>
+    <p class="btn--wrapper">
+      <a class="btn btn--view" href="/merchants">Merchant Filter</a>
+    </p>
+  </div>
+</div>
 
-<form action="/transactions/sorted" method="GET">
-  <label for="sort-by">Sort By:</label>
-  <select name="sorter" id="sort-by">
-    <% for chooser in @choosers %>
-    <option value="<%= chooser %>"><%= chooser %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Sort">
-</form>
+<div class="grid">
+  <div class="grid-row grid-row-sm">
 
-<form action="/transactions/filtered" method="GET">
-  <label for="filter-by">Month Filter</label>
-  <select name="month" id="filter-by">
-    <% for month in @month_names %>
-    <option value="<%= @month_names.index(month)+1 %>"><%= month %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Filter">
-</form>
+    <form action="/transactions/sorted" method="GET">
+      <label for="sort-by">Sort By:</label>
+      <select name="sorter" id="sort-by">
+        <% for chooser in @choosers %>
+        <option value="<%= chooser %>"><%= chooser %></option>
+        <% end %>
+      </select>
+      <input class="btn--sort" type="submit" value="Sort">
+    </form>
 
-<hr />
+    <form action="/transactions/filtered" method="GET">
+      <label for="filter-by">Month Filter</label>
+      <select name="month" id="filter-by">
+        <% for month in @month_names %>
+        <option value="<%= @month_names.index(month)+1 %>"><%= month %></option>
+        <% end %>
+      </select>
+      <input class="btn--filter" type="submit" value="Filter">
+    </form>
+  </div>
+</div>
 
 <table>
   <thead>

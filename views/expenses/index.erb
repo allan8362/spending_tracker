@@ -1,4 +1,4 @@
-<h3>Expenses for <%= @month_names.fetch(@month-1) %></h3>
+<h1>Expenses for <%= @month_names.fetch(@month-1) %></h1>
 <hr />
 <p>Total Budget: £ <%= '%.2f' % @total_budget.round(2) %></p>
 <p>Total Outgoings: £ <%= '%.2f' % @outgoings.round(2)%></p>

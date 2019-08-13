@@ -1,6 +1,7 @@
 <h3>Add New Transaction</h3>
 
-<form action="/transactions" method="POST">
+
+<form class="grid-row" action="/transactions" method="POST">
 
   <label for="bank-account">Bank Account</label>
   <select id="bank-account" name="bank_id">
@@ -38,6 +39,6 @@
   <label for="trans-desc">Description</label>
   <input type="text" id="trans-desc" name="transaction_desc">
 
-  <input type="submit" value="Add">
+  <input class="btn--add btn--sm" type="submit" value="Add">
 
 </form>

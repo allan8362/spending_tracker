@@ -1,0 +1,17 @@
+select {
+ width: 120px;
+ padding: 5px 35px 5px 5px;
+ margin: 15px 0;
+ font-size: 0.7em;
+ background: #fdeed7;
+ border: 1px dotted black;
+}
+
+input[type="date"], input[type="number"], input[type="text"] {
+  background: #fdeed7;
+  width: 120px;
+}
+
+.add-trans {
+  display: block;
+}
