@@ -100,4 +100,14 @@ class Expense
     return total_budget() - total_spent
   end
 
+  def self.budget_alert(filter_month)
+    budget_left = Expense.total_budget_left(filter_month).round(2)
+    display_budget_left = (budget_left * -1).round(2)
+    if budget_left < 0
+      return "You are over your  monthly budget by £#{display_budget_left}."
+    else
+      return "Budget okay so far you have still got £#{budget_left}."
+    end
+  end
+
 end

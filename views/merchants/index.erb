@@ -1,7 +1,9 @@
 <h3>Merchants</h3>
 
-<hr />
-<p><a href="/merchants/new">Add new merchant</a></p>
+
+<p class="btn--wrapper">
+  <a class="btn btn--add" href="/merchants/new">Add new merchant</a>
+</p>
 <hr />
 
 <table>
@@ -19,7 +21,7 @@
     <tr>
       <td><%= merchant.name() %></td>
       <td><%= merchant.tag() %></td>
-      <td><%= '%.2f' % merchant.total_out() %></td>
+      <td>£ <%= '%.2f' % merchant.total_out() %></td>
 
       <td><a href="/merchants/<%= merchant.id %>">Show</a></td>
 

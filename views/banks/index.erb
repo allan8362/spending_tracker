@@ -1,8 +1,10 @@
 <h3>Bank Accounts</h3>
 
-<hr />
-<p><a href="/banks/new">Add new bank account</a></p>
-<hr />
+
+<p class="btn--wrapper">
+  <a class="btn btn--add" href="/banks/new">Add new account</a>
+</p>
+
 
 <table>
   <thead>
@@ -19,9 +21,9 @@
     <% for bank in @banks %>
     <tr>
       <td><%= bank.name() %></td>
-      <td><%= '%.2f' % bank.balance() %></td>
-      <td><%= '%.2f' % bank.total_out() %></td>
-      <td><%= '%.2f' % bank.closing_balance() %></td>
+      <td>£ <%= '%.2f' % bank.balance() %></td>
+      <td>£ <%= '%.2f' % bank.total_out() %></td>
+      <td>£ <%= '%.2f' % bank.closing_balance() %></td>
 
       <td><a href="/banks/<%= bank.id %>">Show</a></td>
 

@@ -1,10 +1,17 @@
 <h3>Transactions</h3>
+
+<p class="btn--wrapper">
+  <a class="btn btn--add" href="/transactions/new">Add transaction</a>
+</p>
+<p class="btn--wrapper">
+  <a class="btn btn--view" href="/expenses">Expense Filter</a>
+</p>
+<p class="btn--wrapper">
+  <a class="btn btn--view" href="/merchants">Merchant Filter</a>
+</p>
+
 <hr />
 <p>Total outgoings: £ <%= '%.2f' % @outgoings.round(2) %></p>
-<hr />
-<p><a href="/transactions/new">Add transaction</a></p>
-<p><a href="/expenses">Expense Filter</a></p>
-<p><a href="/merchants">Merchant Filter</a></p>
 <hr />
 
 <form action="/transactions/sorted" method="GET">
@@ -44,7 +51,7 @@
     <% for transaction in @transactions %>
     <tr>
       <td><%= transaction.transaction_date %></td>
-      <td><%= '%.2f' % transaction.amount %></td>
+      <td>£ <%= '%.2f' % transaction.amount %></td>
       <td><%= transaction.merchant.name %></td>
       <td><%= transaction.expense.name %></td>
 

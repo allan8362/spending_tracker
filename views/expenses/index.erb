@@ -3,8 +3,10 @@
 <p>Total Budget: £ <%= '%.2f' % @total_budget.round(2) %></p>
 <p>Total Outgoings: £ <%= '%.2f' % @outgoings.round(2)%></p>
 <p>Total Budget Left: £ <%= '%.2f' % @budget_left.round(2) %></p>
-<hr />
-<p><a href="/expenses/new">Add new expense category</a></p>
+
+<p class="btn--wrapper">
+  <a class="btn btn--add" href="/expenses/new">Add new category</a>
+</p>
 <hr />
 
 <form action="/expenses/filtered" method="GET">
@@ -40,9 +42,9 @@
     <tr>
       <!-- show category name and budget -->
       <td><%= expense.name %></td>
-      <td><%= '%.2f' % expense.budget %></td>
-      <td><%= '%.2f' % expense.total_out(@month) %></td>
-      <td><%= '%.2f' % expense.budget_left(@month) %></td>
+      <td>£ <%= '%.2f' % expense.budget %></td>
+      <td>£ <%= '%.2f' % expense.total_out(@month) %></td>
+      <td>£ <%= '%.2f' % expense.budget_left(@month) %></td>
       <!-- link to show spend -->
       <td><a href="/expenses/<%= expense.id %>">Show</a></td>
       <!-- link to edit expense category -->
