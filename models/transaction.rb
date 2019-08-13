@@ -105,12 +105,12 @@ class Transaction
 
   end
 
-  def self.filter_by_date()
+  def self.filter_by_date(month)
     transactions = all()
     filtered_transactions = []
 
-    start_date = Month.month_start(7)
-    end_date = Month.month_end(7)
+    start_date = Month.month_start(month)
+    end_date = Month.month_end(month)
 
     for transaction in transactions
       if (transaction.transaction_date >= start_date && transaction.transaction_date <= end_date)
@@ -120,6 +120,14 @@ class Transaction
     return filtered_transactions
   end
 
+  def self.monthly_transactions(month)
+    total_trans = 0
+    transactions = filter_by_date(month)
+    for transaction in transactions
+      total_trans += transaction.amount
+    end
+    return total_trans
+  end
 
 
 end

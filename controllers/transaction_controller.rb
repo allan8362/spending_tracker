@@ -8,6 +8,7 @@ get '/transactions' do
   @choosers = Chooser.all()
   @transactions = Transaction.all()
   @outgoings = Transaction.total_transactions()
+  @month_names = Month.month_names()
   erb(:"transactions/index")
 end
 
@@ -16,13 +17,16 @@ get '/transactions/sorted' do
   @choosers = Chooser.all()
   @transactions = Transaction.sorted_transactions(chooser)
   @outgoings = Transaction.total_transactions()
+  @month_names = Month.month_names()
   erb(:"transactions/index")
 end
 
 get '/transactions/filtered' do
+  month = params[:month].to_i()
   @choosers = Chooser.all()
-  @transactions = Transaction.filter_by_date()
-  @outgoings = Transaction.total_transactions()
+  @transactions = Transaction.filter_by_date(month)
+  @outgoings = Transaction.monthly_transactions(month)
+  @month_names = Month.month_names()
   erb(:"transactions/index")
 end
 

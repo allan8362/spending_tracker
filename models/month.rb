@@ -3,7 +3,7 @@ require('date')
 class Month
 
   def self.month_start(this_month)
-    # this_month = Date.today().month()
+
     this_year = Date.today().year()
 
     case
@@ -15,7 +15,7 @@ class Month
   end
 
   def self.month_end(this_month)
-    # this_month = Date.today().month()
+
     this_year = Date.today().year()
     case
     when this_month == 1, 3, 5, 7, 8
@@ -29,6 +29,10 @@ class Month
     when this_month == 10, 12
       end_date = "#{this_year}-#{this_month}-31"
     end
+  end
+
+  def self.month_names()
+    return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   end
 
 end
