@@ -3,8 +3,23 @@ require('pry-byebug')
 
 # INDEX
 get '/expenses' do
+  @month = Date.today().strftime("%m").to_i()
   @expenses = Expense.all()
+  @outgoings = Transaction.monthly_transactions(@month)
+  @total_budget = Expense.total_budget()
+  @budget_left = Expense.total_budget_left(@month)
+  @month_names = Month.month_names()
   erb(:"expenses/index")
+end
+
+get '/expenses/filtered' do
+  @month = params[:month].to_i()
+  @expenses = Expense.all()
+  @outgoings = Transaction.monthly_transactions(@month)
+  @total_budget = Expense.total_budget()
+  @budget_left = Expense.total_budget_left(@month)
+  @month_names = Month.month_names()
+  erb(:"expenses/filtered")
 end
 
 # NEW

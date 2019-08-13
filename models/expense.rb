@@ -58,13 +58,13 @@ class Expense
     return transaction_data.map { |transaction| Transaction.new(transaction)}
   end
 
-  def total_out()
+  def total_out(filter_month)
     # bring in all transactions for an expense category
     all_transactions = transactions()
     # set new blank array to receive filtered month transactions
     transactions = []
     # get month and month dates
-    month = 8
+    month = filter_month
     start_date = Month.month_start(month)
     end_date = Month.month_end(month)
     # loop through all transactions to get a months transactions
@@ -82,9 +82,22 @@ class Expense
     return outgoings
   end
 
-  def budget_left()
-    return @budget - total_out()
+  def budget_left(filter_month)
+    return @budget - total_out(filter_month)
   end
 
+  def self.total_budget()
+    budgets = all()
+    total_budget = 0
+    for budget in budgets
+      total_budget += budget.budget
+    end
+    return total_budget
+  end
+
+  def self.total_budget_left(filter_month)
+    total_spent = Transaction.monthly_transactions(filter_month)
+    return total_budget() - total_spent
+  end
 
 end
