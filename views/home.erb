@@ -1,12 +1,33 @@
-<h3>Welcome</h3>
+<h3>Home Page</h3>
+<div class="grid">
 
-<p class="btn--wrapper">
-  <a class="btn btn--add" href="/transactions/new">Add transaction</a>
-</p>
-<div class="budget--alert">
-<h3>Budget Update</h3>
-<p><%= Expense.budget_alert(8) %></p>
-<p class="btn-wrapper">
-  <a class="btn btn--view" href="/expenses">View Budget</a>
-</p>
+  <div class="grid-row grid-row-sm">
+    <div class="cell">
+      <p>Transactions</p>
+      <p class="btn--wrapper">
+        <a class="btn btn--add" href="/transactions/new">Add transaction</a>
+      </p>
+    </div>
+    <div class="cell">
+      <p>Bank Balance: £ <%= Bank.total_closing_balance() %></p>
+      <p class="btn--wrapper">
+        <a class="btn btn--view" href="/banks">View Accounts</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="grid-row grid-row-sm">
+    <div class="cell">
+      <p>Budget Update</p>
+      <p><%= Expense.budget_alert(8) %></p>
+      <p class="btn--wrapper">
+        <a class="btn btn--view" href="/expenses">View Budget</a>
+      </p>
+    </div>
+    <div class="cell">
+      <p></p>
+    </div>
+  </div>
+
+
 </div>

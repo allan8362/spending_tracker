@@ -23,12 +23,17 @@
       <td><%= merchant.tag() %></td>
       <td>£ <%= '%.2f' % merchant.total_out() %></td>
 
-      <td><a href="/merchants/<%= merchant.id %>">Show</a></td>
+      <td>
+        <a class="btn--show" href="/merchants/<%= merchant.id %>">Show</a>
+      </td>
 
-      <td><a href="/merchants/<%= merchant.id %>/edit">Edit</a></td>
+      <td>
+        <a class="btn--edit" href="/merchants/<%= merchant.id %>/edit">Edit</a>
+      </td>
+
       <td>
         <form action="/merchants/<%= merchant.id %>/delete" method="POST">
-          <input type="submit" value="Delete">
+          <input class="btn--delete" type="submit" value="Delete">
         </form>
       </td>
     </tr>

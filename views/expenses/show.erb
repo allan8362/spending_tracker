@@ -1,7 +1,7 @@
 <h3>Spend on: <%= @expense.name %></h3>
 <p>Budget: £ <%= '%.2f' % @expense.budget %></p>
-<p>Spent: £ <%= '%.2f' % @expense.total_out()%></p>
-<p>Left: £ <%= '%.2f' % @expense.budget_left() %></p>
+<p>Spent: £ <%= '%.2f' % @expense.total_out(@month)%></p>
+<p>Left: £ <%= '%.2f' % @expense.budget_left(@month) %></p>
 
 <table>
 
@@ -26,4 +26,6 @@
 
 </table>
 
-<p><a href="/expenses">Budget List</a></p>
+<p class="btn--wrapper">
+  <a class="btn btn--back" href="/expenses">Budget List</a>
+</p>

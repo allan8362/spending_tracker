@@ -1,10 +1,10 @@
 <h3>Bank Accounts</h3>
 
-
 <p class="btn--wrapper">
   <a class="btn btn--add" href="/banks/new">Add new account</a>
 </p>
 
+<p>Total Closing Balance: £ <%= Bank.total_closing_balance() %></p>
 
 <table>
   <thead>
@@ -25,12 +25,17 @@
       <td>£ <%= '%.2f' % bank.total_out() %></td>
       <td>£ <%= '%.2f' % bank.closing_balance() %></td>
 
-      <td><a href="/banks/<%= bank.id %>">Show</a></td>
+      <td>
+        <a class="btn--show" href="/banks/<%= bank.id %>">Show</a>
+      </td>
 
-      <td><a href="/banks/<%= bank.id %>/edit">Edit</a></td>
+      <td>
+        <a class="btn--edit" href="/banks/<%= bank.id %>/edit">Edit</a>
+      </td>
+
       <td>
         <form action="/banks/<%= bank.id %>/delete" method="POST">
-          <input type="submit" value="Delete">
+          <input class="btn--delete" type="submit" value="Delete">
         </form>
       </td>
     </tr>

@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./transaction.rb')
+require('pry-byebug')
 
 class Bank
 
@@ -69,6 +70,15 @@ class Bank
 
   def closing_balance()
     return @balance - total_out()
+  end
+
+  def self.total_closing_balance()
+    banks = all()
+    total_closing_balance = 0
+    for bank in banks
+      total_closing_balance += bank.closing_balance()
+    end
+    return total_closing_balance.round(2)
   end
 
 end

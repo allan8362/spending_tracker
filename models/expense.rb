@@ -106,7 +106,7 @@ class Expense
     if budget_left < 0
       return "You are over your  monthly budget by £#{display_budget_left}."
     else
-      return "Budget okay so far you have still got £#{budget_left}."
+      return "Budget okay so far, you have still got £#{budget_left}."
     end
   end
 

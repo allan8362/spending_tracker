@@ -46,14 +46,18 @@
       <td>£ <%= '%.2f' % expense.total_out(@month) %></td>
       <td>£ <%= '%.2f' % expense.budget_left(@month) %></td>
       <!-- link to show spend -->
-      <td><a href="/expenses/<%= expense.id %>">Show</a></td>
+      <td>
+        <a class="btn--show" href="/expenses/<%= expense.id %>/<%= @month %>">Show</a>
+      </td>
       <!-- link to edit expense category -->
-      <td><a href="/expenses/<%= expense.id %>/edit">Edit</a></td>
+      <td>
+        <a class="btn--edit" href="/expenses/<%= expense.id %>/edit">Edit</a>
+      </td>
 
       <!-- button to delete expense category -->
       <td>
         <form action="/expenses/<%= expense.id %>/delete" method="POST">
-          <input type="submit" value="Delete">
+          <input class="btn--delete" type="submit" value="Delete">
         </form>
       </td>
     </tr>

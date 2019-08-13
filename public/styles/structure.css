@@ -27,6 +27,21 @@ li a:hover {
   background-color: #111;
 }
 
-.budget--alert {
-  
+.grid {
+
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  flex: 1;
+  margin: auto;
+  justify-content: center;
+}
+
+.grid-row-sm {
+  flex-direction: row;
 }

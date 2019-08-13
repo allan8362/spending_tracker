@@ -37,8 +37,9 @@ post '/expenses' do
 end
 
 # SHOW
-get '/expenses/:id' do
+get '/expenses/:id/:month' do
   id = params[:id].to_i()
+  @month = params[:month].to_i()
   @expense = Expense.find(id)
   erb(:"expenses/show")
 end

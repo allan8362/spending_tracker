@@ -3,7 +3,7 @@
 <hr />
 <p>Account number: <%= @bank.account_number %></p>
 <p>Account type: <%= @bank.type %></p>
-<p>Balance: £ <%= @bank.balance %></p>
+<p>Closing Balance: £ <%= '%.2f' % @bank.closing_balance %></p>
 </header>
 <hr />
 <table>
@@ -29,4 +29,6 @@
   </tbody>
 </table>
 
-<p><a href="/banks">Account List</a></p>
+<p class="btn--wrapper">
+  <a class="btn btn--back" href="/banks">Account List</a>
+</p>
