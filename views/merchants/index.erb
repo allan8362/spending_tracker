@@ -33,7 +33,7 @@
 
       <td>
         <form action="/merchants/<%= merchant.id %>/delete" method="POST">
-          <input class="btn--delete" type="submit" value="Delete">
+          <input class="btn--delete" type="submit" value="Delete" onclick="return confirm ('Are you sure you want to delete?');">
         </form>
       </td>
     </tr>

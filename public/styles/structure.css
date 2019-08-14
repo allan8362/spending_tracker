@@ -10,6 +10,10 @@ p.home, p.info, .info p {
   padding-left: 10px;
 }
 
+p.info {
+  padding-right: 20px;
+}
+
 nav {
   font-family: 'Quicksand', sans-serif;
 }

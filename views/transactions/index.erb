@@ -42,6 +42,10 @@
       </select>
       <input class="btn--filter" type="submit" value="Filter">
     </form>
+
+    <p>
+      <a class="btn--reset" href="/transactions">Reset</a>
+    </p>
   </div>
 </div>
 
@@ -74,7 +78,7 @@
 
       <td>
         <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-          <input class="btn--delete" type="submit" value="Delete">
+          <input class="btn--delete" type="submit" value="Delete" onclick="return confirm ('Are you sure you want to delete?');">
         </form>
       </td>
     </tr>

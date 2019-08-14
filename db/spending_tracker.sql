@@ -17,7 +17,7 @@ CREATE TABLE expenses (
 
 CREATE TABLE banks (
   id SERIAL PRIMARY KEY,
-  account_number INT,
+  account_number BIGINT,
   name VARCHAR(255),
   type VARCHAR(255),
   balance FLOAT

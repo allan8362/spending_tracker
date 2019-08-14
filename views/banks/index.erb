@@ -1,6 +1,6 @@
 <h1>Bank Accounts</h1>
 
-<p class="info" >Total Closing Balance: £ <%= Bank.total_closing_balance() %></p>
+<p class="info" >Total Closing Balance: £ <%= '%.2f' % Bank.total_closing_balance() %></p>
 
 <p class="btn--wrapper">
   <a class="btn btn--add" href="/banks/new">Add new account</a>
@@ -35,7 +35,7 @@
 
       <td>
         <form action="/banks/<%= bank.id %>/delete" method="POST">
-          <input class="btn--delete" type="submit" value="Delete">
+          <input class="btn--delete" type="submit" value="Delete" onclick="return confirm ('Are you sure you want to delete?');">
         </form>
       </td>
     </tr>
