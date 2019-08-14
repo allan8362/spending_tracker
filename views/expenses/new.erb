@@ -1,11 +1,11 @@
 <h3>Add new expense category</h3>
 
-<form action="/expenses" method="POST">
+<form class="grid-row" action="/expenses" method="POST">
 
 <label for="expense-name">Expense Category Name</label>
 <input required type="text" id="expense-name" name="name">
 <label for="expense-budget">Monthly Budget</label>
 <input type="number" step ="0.01" id="expense-budget" name="budget">
-<input type="submit" value="Add category">
+<input class="btn--add btn--sm" type="submit" value="Add category">
 
 </form>

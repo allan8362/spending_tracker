@@ -1,6 +1,6 @@
 <h3>Add New Bank Account</h3>
 
-<form action="/banks" method="POST">
+<form class="grid-row" action="/banks" method="POST">
 
 <label for="acct-no">Account number</label>
 <input required type="number" id="acct-no" name="account_number">
@@ -14,7 +14,6 @@
 <label for="acct-balance">Opening Balance</label>
 <input type="number" step ="0.01" id="acct-balance" name="balance">
 
-
-<input type="submit" value="Add account">
+<input class="btn--add btn--sm" type="submit" value="Add account">
 
 </form>

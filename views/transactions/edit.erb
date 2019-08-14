@@ -1,6 +1,6 @@
 <h3>Edit</h3>
 
-<form action="/transactions/<%= @transaction.id %>" method="POST">
+<form class="grid-row" action="/transactions/<%= @transaction.id %>" method="POST">
 
   <label for="bank-account">Bank Account</label>
   <select id="bank-account" name="bank_id">
@@ -38,9 +38,6 @@
   <label for="trans-desc">Description</label>
   <input type="text" id="trans-desc" name="transaction_desc" value="<%= @transaction.transaction_desc %>">
 
-  <input type="submit" value="Update">
-
-
-
+  <input class="btn--add btn--sm" type="submit" value="Update">
 
 </form>

@@ -1,23 +1,34 @@
 <h3>Expenses for <%= @month_names.fetch(@month-1) %></h3>
-<hr />
-<p>Total Budget: £ <%= '%.2f' % @total_budget.round(2) %></p>
-<p>Total Outgoings: £ <%= '%.2f' % @outgoings.round(2)%></p>
-<p>Total Budget Left: £ <%= '%.2f' % @budget_left.round(2) %></p>
-<hr />
-<p><a href="/expenses/new">Add new expense category</a></p>
-<hr />
 
-<form action="/expenses/filtered" method="GET">
-  <label for="filter-by">Month Filter</label>
-  <select name="month" id="filter-by">
-    <% for month in @month_names %>
-    <option value="<%= @month_names.index(month)+1 %>"><%= month %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Filter">
-</form>
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <p class="info" >Total Budget: <br>£ <%= '%.2f' % @total_budget.round(2) %></p>
+    <p class="info" >Total Outgoings: <br>£ <%= '%.2f' % @outgoings.round(2)%></p>
+    <p class="info" >Total Budget Left: <br>£ <%= '%.2f' % @budget_left.round(2) %></p>
+  </div>
+</div>
 
-<hr />
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <p class="btn--wrapper">
+      <a class="btn btn--add" href="/expenses/new">Add new category</a>
+    </p>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <form action="/expenses/filtered" method="GET">
+      <label for="filter-by">Month Filter</label>
+      <select name="month" id="filter-by">
+        <% for month in @month_names %>
+        <option value="<%= @month_names.index(month)+1 %>"><%= month %></option>
+        <% end %>
+      </select>
+      <input class="btn--filter" type="submit" value="Filter">
+    </form>
+  </div>
+</div>
 
 <table>
   <thead>

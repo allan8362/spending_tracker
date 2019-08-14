@@ -1,6 +1,6 @@
 <h3>Edit</h3>
 
-<form action="/merchants/<%= @merchant.id %>" method="POST">
+<form class="grid-row" action="/merchants/<%= @merchant.id %>" method="POST">
 
 <label for="merchant-name">Merchant Name:</label>
 <input required type="text" id="merchant-name" name="name" value="<%= @merchant.name %>">
@@ -8,6 +8,6 @@
 <label for="merchant-tag">Default Category</label>
 <input type="text" id="merchant-tag" name="tag" value="<%= @merchant.tag %>">
 
-<input type="submit" value="Update">
+<input class="btn--add btn--sm" type="submit" value="Update">
 
 </form>

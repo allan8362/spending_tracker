@@ -1,11 +1,13 @@
-<header>
 <h3>Bank account: <%= @bank.name %></h3>
-<hr />
-<p>Account number: <%= @bank.account_number %></p>
-<p>Account type: <%= @bank.type %></p>
-<p>Closing Balance: £ <%= '%.2f' % @bank.closing_balance %></p>
-</header>
-<hr />
+
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+      <p class="info">Account number: <br><%= @bank.account_number %></p>
+      <p class="info">Account type: <br><%= @bank.type %></p>
+      <p class="info">Closing Balance: <br>£ <%= '%.2f' % @bank.closing_balance %></p>
+  </div>
+</div>
+
 <table>
   <thead>
     <tr>

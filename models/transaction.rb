@@ -91,15 +91,17 @@ class Transaction
   def self.sorted_transactions(sort_col)
     transactions = all()
     case
-    when sort_col == "Date"
+    when sort_col == "Date-oldest-first"
       return transactions.sort_by { |transaction| transaction.transaction_date }
+    when sort_col == "Date-newest-first"
+      return transactions.sort { |transaction1, transaction2| transaction2.transaction_date <=> transaction1.transaction_date}
     when sort_col == "Expense"
       return transactions.sort_by { |transaction| transaction.expense.name }
     when sort_col == "Merchant"
       return transactions.sort_by { |transaction| transaction.merchant.name }
-    when sort_col == "Amount_ascending"
+    when sort_col == "Amount_low-high"
       return transactions.sort_by { |transaction| transaction.amount }
-    when sort_col == "Amount_descending"
+    when sort_col == "Amount_high-low"
       return transactions.sort { |transaction1, transaction2| transaction2.amount <=> transaction1.amount }
     end
 

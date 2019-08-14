@@ -65,7 +65,7 @@
 background-color: darkgrey;
 }
 
-.btn--back:hover {
+.btn--back:hover, .btn--sort:hover, .btn--filter:hover {
   background-color: lightgrey;
 }
 

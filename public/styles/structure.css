@@ -1,7 +1,15 @@
 h1, h3 {
   font-family: 'Raleway', sans-serif;
   padding-left: 10px;
+  margin-bottom: 12px;
 }
+
+p.home, p.info, .info p {
+  font-family: 'Courier New';
+  font-size: 16px;
+  padding-left: 10px;
+}
+
 nav {
   font-family: 'Quicksand', sans-serif;
 }
@@ -26,7 +34,6 @@ li a {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #111;
 }
@@ -43,7 +50,7 @@ li a:hover {
 .cell {
   flex: 1;
   margin: auto;
-  justify-content: center;
+  align-items: center;
 }
 
 .grid-row-sm {

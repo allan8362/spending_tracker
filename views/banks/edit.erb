@@ -1,6 +1,6 @@
 <h3>Edit</h3>
 
-<form action="/banks/<%= @bank.id %>" method="POST">
+<form class="grid-row" action="/banks/<%= @bank.id %>" method="POST">
 
   <label for="acct-no">Account number</label>
   <input required type="number" id="acct-no" name="account_number" value="<%= @bank.account_number %>">
@@ -14,6 +14,6 @@
   <label for="acct-balance">Balance</label>
   <input type="number" step ="0.01" id="acct-balance" name="balance" value="<%= '%.2f' % @bank.balance %>">
 
-  <input type="submit" value="Update">
+  <input class="btn--add btn--sm" type="submit" value="Update">
 
 </form>

@@ -36,14 +36,6 @@ post '/expenses' do
   redirect "/expenses"
 end
 
-# SHOW
-get '/expenses/:id/:month' do
-  id = params[:id].to_i()
-  @month = params[:month].to_i()
-  @expense = Expense.find(id)
-  erb(:"expenses/show")
-end
-
 # DELETE
 post '/expenses/:id/delete' do
   id = params[:id].to_i()
@@ -64,4 +56,12 @@ post '/expenses/:id' do
   expense = Expense.new(params)
   expense.update()
   redirect '/expenses'
+end
+
+# SHOW
+get '/expenses/:id/:month' do
+  id = params[:id].to_i()
+  @month = params[:month].to_i()
+  @expense = Expense.find(id)
+  erb(:"expenses/show")
 end

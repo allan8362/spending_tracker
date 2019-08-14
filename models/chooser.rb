@@ -1,6 +1,6 @@
 class Chooser
   def self.all()
-    return ["Date", "Expense", "Merchant", "Amount_ascending", "Amount_descending"]
+    return ["Date-newest-first", "Date-oldest-first", "Expense", "Merchant", "Amount_low-high", "Amount_high-low"]
   end
 
 end
