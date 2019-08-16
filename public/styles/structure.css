@@ -54,7 +54,7 @@ li a:hover {
 .cell {
   flex: 1;
   margin: auto;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .grid-row-sm {

@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <% for expense in @expense.transactions() %>
+    <% for expense in @expense.monthly_transactions(@month) %>
     <tr>
       <td> <%= expense.transaction_date %></td>
       <td> <%= '%.2f' % expense.amount %></td>

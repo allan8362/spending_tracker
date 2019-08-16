@@ -58,11 +58,11 @@ class Expense
     return transaction_data.map { |transaction| Transaction.new(transaction)}
   end
 
-  def total_out(filter_month)
+  def monthly_transactions(filter_month)
     # bring in all transactions for an expense category
     all_transactions = transactions()
     # set new blank array to receive filtered month transactions
-    transactions = []
+    monthly_transactions = []
     # get month and month dates
     month = filter_month
     start_date = Month.month_start(month)
@@ -70,13 +70,17 @@ class Expense
     # loop through all transactions to get a months transactions
     for transaction in all_transactions
       if (transaction.transaction_date >= start_date && transaction.transaction_date <= end_date)
-        transactions.push(transaction)
+        monthly_transactions.push(transaction)
       end
     end
+    return monthly_transactions
+  end
+
+  def total_out(filter_month)
     # set outgoings for this expense category to zero
     outgoings = 0
     # loop through and add amount of each transaction to outgoings
-    for transaction in transactions
+    for transaction in monthly_transactions(filter_month)
       outgoings += transaction.amount
     end
     return outgoings
