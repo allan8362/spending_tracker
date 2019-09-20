@@ -2,11 +2,13 @@ require_relative("../models/bank.rb")
 require_relative("../models/expense.rb")
 require_relative("../models/merchant.rb")
 require_relative("../models/transaction.rb")
+require_relative("../models/income.rb")
 require("pry-byebug")
 
 Transaction.delete_all()
 Merchant.delete_all()
 Expense.delete_all()
+Income.delete_all()
 Bank.delete_all()
 
 merchant1 = Merchant.new({
@@ -40,6 +42,12 @@ expense2.save()
 
 # expense2.budget = 120.00
 # expense2.update()
+income1 = Income.new({
+  "name" => "Wages",
+  "amount" => 800
+  })
+
+income1.save()
 
 bank1 = Bank.new({
   "account_number" => 10124876,

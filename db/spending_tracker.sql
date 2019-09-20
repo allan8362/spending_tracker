@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS merchants;
 DROP TABLE IF EXISTS expenses;
+DROP TABLE IF EXISTS incomes;
 DROP TABLE IF EXISTS banks;
 
 CREATE TABLE merchants (
@@ -13,6 +14,12 @@ CREATE TABLE expenses (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   budget FLOAT
+);
+
+CREATE TABLE incomes (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  amount FLOAT
 );
 
 CREATE TABLE banks (
