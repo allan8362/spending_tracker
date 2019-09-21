@@ -1,0 +1,12 @@
+<h3>Edit</h3>
+
+<form class="grid-row" action="/incomes/<%= @income.id %>" method="POST">
+  <label for="income-name">Income Category Name</label>
+  <input required type="text" id="income-name" name="name" value="<%= @income.name %>">
+
+  <label for="income-amount">Expected Income</label>
+  <input type="number" step="0.01" id="income-amount" name="amount" value="<%= '%.2f' % @income.amount %>">
+
+  <input class="btn--add btn--sm" type="submit" value="Update">
+
+</form>
