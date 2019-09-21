@@ -19,7 +19,7 @@
   <div class="grid-row grid-row-sm">
     <div class="cell">
       <p class="home">Budget Update</p>
-      <p class="home"><%= Expense.budget_alert(8) %></p>
+      <p class="home"><%= Expense.budget_alert(Date.today().strftime("%m").to_i()) %></p>
       <p class="btn--wrapper">
         <a class="btn btn--view" href="/expenses">View Budget</a>
       </p>

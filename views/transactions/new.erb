@@ -1,14 +1,13 @@
 <h3>Add New Transaction</h3>
 
-
 <form class="grid-row" action="/transactions" method="POST">
 
   <label for="bank-account">Bank Account</label>
   <select id="bank-account" name="bank_id">
     <% for bank in @banks %>
-      <option value="<%= bank.id %>">
-        <%= bank.name %>
-      </option>
+    <option value="<%= bank.id %>">
+      <%= bank.name %>
+    </option>
     <% end %>
   </select>
 
@@ -20,19 +19,19 @@
 
   <label for="merchant">Merchant</label>
   <select name="merchant_id" id="merchant">
-    <%  for merchant in @merchants %>
-      <option value="<%= merchant.id %>">
-        <%= merchant.name %>
-      </option>
+    <% for merchant in @merchants %>
+    <option value="<%= merchant.id %>">
+      <%= merchant.name %>
+    </option>
     <% end %>
   </select>
 
   <label for="expense_category">Category</label>
   <select name="expense_id" id="expense_category">
     <% for expense in @expenses %>
-      <option value="<%= expense.id %>">
-        <%= expense.name %>
-      </option>
+    <option value="<%= expense.id %>">
+      <%= expense.name %>
+    </option>
     <% end %>
   </select>
 
@@ -40,5 +39,4 @@
   <input type="text" id="trans-desc" name="transaction_desc">
 
   <input class="btn--add btn--sm" type="submit" value="Add">
-
 </form>
