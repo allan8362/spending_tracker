@@ -1,0 +1,43 @@
+<h1>Income Categories</h1>
+
+<p class="btn--wrapper">
+  <a class="btn btn--add" href="/incomes/new">Add new category</a>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col" colspan=3>Monthly</th>
+      <th scope="col" colspan=3></th>
+    </tr>
+    <tr>
+      <th scope="col">Income Type</th>
+      <th scope="col">Expected</th>
+      <th scope="col">Received</th>
+      <th scope="col">Difference</th>
+      <th scope="col" colspan=3>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for income in @incomes %>
+    <tr>
+      <td><%= income.name %></td>
+      <td>£ <%= '%.2f' % income.amount %></td>
+      <td>£ </td>
+      <td>£ </td>
+      <td>
+        <a class="btn--show" href="/incomes/<%= income.id %>">Show</a>
+      </td>
+      <td>
+        <a class="btn--edit" href="/incomes/<%= income.id %>/edit">Edit</a>
+      </td>
+      <td>
+        <form action="/incomes/<%= income.id %>/delete" method="POST">
+          <input class="btn--delete" type="submit" value="Delete" onclick="return confirm ('Are you sure you want to delete?');">
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
