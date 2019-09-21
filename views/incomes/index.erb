@@ -1,5 +1,14 @@
 <h1>Income Categories</h1>
 
+<div class="grid">
+  <div class="grid-row grid-row-sm">
+    <p class=info>Total Expected: <br>£ <%= '%.2f' % @total_income.round(2) %></p>
+    <p class=info>Total Received:<br>£</p>
+    <p class=info>Difference:<br>£</p>
+  </div>
+</div>
+
+
 <p class="btn--wrapper">
   <a class="btn btn--add" href="/incomes/new">Add new category</a>
 </p>

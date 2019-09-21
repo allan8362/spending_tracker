@@ -25,8 +25,8 @@
       </p>
     </div>
     <div class="cell">
-      <p class="home">Coming Soon!</p>
-      <p class="home">Add your income categories.</p>
+      <p class="home">Total Expected Income: £<%= '%.2f' % Income.total_income().round(2)%></p>
+      <p class="home">Total Expense Budget: £<%= '%.2f' % Expense.total_budget().round(2)%></p>
     </div>
   </div>
 

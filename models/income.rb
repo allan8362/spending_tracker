@@ -49,4 +49,13 @@ class Income
     SqlRunner.run(sql, values)
   end
 
+  def self.total_income()
+    incomes = all()
+    total_income = 0
+    for income in incomes
+      total_income += income.amount
+    end
+    return total_income
+  end
+
 end
