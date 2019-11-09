@@ -4,21 +4,17 @@ require('pry-byebug')
 class Month
 
   def self.month_start(this_month)
-
     this_year = Date.today().year()
-    month = sprintf("%02d", this_month).to_i
-    new_date = Date.new(this_year, month, 1)
-    start_date = new_date.strftime("%Y-%m-%d")
-
+    # this is version using sprintf
+    # start_date = Date.new(this_year, sprintf("%02d", this_month).to_i, 1).strftime("%Y-%m-%d")
+    start_date = Date.new(this_year, this_month, 1).strftime("%Y-%m-%d")
   end
 
   def self.month_end(this_month)
-
     this_year = Date.today().year()
-    month = sprintf("%02d", this_month).to_i
-    new_date = Date.new(this_year, month, -1)
-    end_date = new_date.strftime("%Y-%m-%d")
-
+    # this is version using sprintf
+    # end_date = Date.new(this_year, sprintf("%02d", this_month).to_i, -1).strftime("%Y-%m-%d")
+    end_date = Date.new(this_year, this_month, -1).strftime("%Y-%m-%d")
   end
 
   def self.month_names()
