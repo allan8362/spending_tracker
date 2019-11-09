@@ -1,34 +1,20 @@
 require('date')
+require('pry-byebug')
 
 class Month
 
   def self.month_start(this_month)
-
     this_year = Date.today().year()
-
-    case
-    when this_month < 10
-      start_date = "#{this_year}-0#{this_month}-01"
-    else
-      start_date = "#{this_year}-#{this_month}-01"
-    end
+    # this is version using sprintf
+    # start_date = Date.new(this_year, sprintf("%02d", this_month).to_i, 1).strftime("%Y-%m-%d")
+    start_date = Date.new(this_year, this_month, 1).strftime("%Y-%m-%d")
   end
 
   def self.month_end(this_month)
-
     this_year = Date.today().year()
-    case
-    when this_month == 1, 3, 5, 7, 8
-      end_date = "#{this_year}-0#{this_month}-31"
-    when this_month == 2
-      end_date = "#{this_year}-0#{this_month}-28"
-    when this_month == 4, 6, 9, 11
-      end_date = "#{this_year}-0#{this_month}-30"
-    when this_month == 11
-      end_date = "#{this_year}-#{this_month}-30"
-    when this_month == 10, 12
-      end_date = "#{this_year}-#{this_month}-31"
-    end
+    # this is version using sprintf
+    # end_date = Date.new(this_year, sprintf("%02d", this_month).to_i, -1).strftime("%Y-%m-%d")
+    end_date = Date.new(this_year, this_month, -1).strftime("%Y-%m-%d")
   end
 
   def self.month_names()
